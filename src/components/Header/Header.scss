@@ -1,0 +1,152 @@
+.navbar {
+  padding: 8px 0;
+  transition: all 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.8);
+  
+  .container, .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  &.navbar-scrolled {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 6px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; // Предотвращает сжатие бренда
+    
+    .brand-logo {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 5px;
+    }
+    
+    .brand-text {
+      margin-left: 8px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+  }
+  
+  .navbar-collapse {
+    flex-grow: 1; // Позволяет коллапсу занимать доступное пространство
+    justify-content: center; // Центрирует содержимое коллапса
+  }
+  
+  .navbar-toggler {
+    border: none;
+    padding: 4px 8px;
+    
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  
+  .navbar-nav {
+    .nav-item {
+      margin: 0 3px;
+      color: white;
+      font-weight: 500;
+      position: relative;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      padding: 0.25rem 0.5rem;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: #c8102e;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width 0.3s ease;
+      }
+      
+      &:hover, &.active {
+        color: #c8102e;
+        
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  .contact-block {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; // Предотвращает сжатие блока контактов
+  }
+  
+  .navbar-phone {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-size: 0.9rem;
+    white-space: nowrap; // Предотвращает перенос номера телефона
+    
+    svg {
+      margin-right: 4px;
+      color: #c8102e;
+    }
+    
+    &:hover {
+      color: #c8102e;
+    }
+  }
+  
+  .navbar-cta {
+    background-color: #c8102e;
+    border-color: #c8102e;
+    margin-left: 8px;
+    padding: 4px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 0.85rem;
+    white-space: nowrap; // Предотвращает перенос текста кнопки
+    
+    &:hover {
+      background-color: darken(#c8102e, 10%);
+      border-color: darken(#c8102e, 10%);
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.9);
+    
+    .navbar-brand {
+      .brand-logo {
+        height: 32px;
+      }
+      
+      .brand-text {
+        font-size: 1.1rem;
+      }
+    }
+    
+    .navbar-collapse {
+      margin-top: 10px;
+    }
+    
+    .navbar-nav {
+      margin-bottom: 10px;
+      
+      .nav-item {
+        margin: 2px 0;
+        padding: 5px 0;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -6,7 +6,6 @@ import Services from './components/Services/Services';
 import Portfolio from './components/Portfolio/Portfolio';
 import Process from './components/Process/Process';
 import Materials from './components/Materials/Materials';
-import Pricing from './components/Pricing/Pricing';
 import Testimonials from './components/Testimonials/Testimonials';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
@@ -21,7 +20,6 @@ function App() {
       <Portfolio />
       <Process />
       <Materials />
-      <Pricing />
       <Testimonials />
       <Contact />
       <Footer />

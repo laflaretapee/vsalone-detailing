@@ -1,11 +1,34 @@
 .hero-section {
   position: relative;
-  background-image: url('../../assets/images/hero-bg.jpg'); // Здесь нужно будет добавить фоновое изображение
+  background-image: url('../../assets/images/phon.jpg'); // Здесь нужно будет добавить фоновое изображение
   background-size: cover;
   background-position: center;
   min-height: 100vh;
   display: flex;
   align-items: center;
+  
+
+  .hero-ghost-btn {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+  
+    &:last-child {
+      margin-right: 0;
+    }
+  
+    &:hover,
+    &:focus {
+      background: #d32f2f;    // ваш фирменный красный
+      color: #fff;
+      border-color: #d32f2f;
+    }
+  }
   
   .overlay {
     position: absolute;

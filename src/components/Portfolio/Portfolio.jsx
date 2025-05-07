@@ -14,51 +14,43 @@ const Portfolio = () => {
   const portfolioItems = [
     {
       id: 1,
-      title: 'Перетяжка салона BMW X5',
+      title: 'Перетяжка салона Mazda',
       category: 'upholstery',
-      description: 'Полная перетяжка салона в натуральную кожу наппа с контрастной строчкой',
-      imageBefore: '/images/portfolio/bmw-x5-before.jpg',
-      imageAfter: '/images/portfolio/bmw-x5-after.jpg',
+      description: 'Полная перетяжка салона в натуральную кожу',
+      imageBefore: require('../../assets/images/works/19.jpg'),
+      imageAfter: require('../../assets/images/works/21.jpg'),
     },
     {
       id: 2,
-      title: 'Перешив руля Mercedes-Benz',
+      title: 'Перешив руля Mazda',
       category: 'controls',
-      description: 'Перешив руля комбинацией кожи и алькантары с красной строчкой',
-      imageBefore: '/images/portfolio/mercedes-wheel-before.jpg',
-      imageAfter: '/images/portfolio/mercedes-wheel-after.jpg',
+      description: 'Перешив руля комбинацией кожи и экокожи',
+      imageBefore: require('../../assets/images/works/28.jpg'),
+      imageAfter: require('../../assets/images/works/35.jpg'),
     },
     {
       id: 3,
-      title: 'Саквояж для Audi Q7',
+      title: 'Саквояж',
       category: 'accessories',
       description: 'Изготовление эксклюзивного саквояжа в багажник из натуральной кожи',
-      imageBefore: '/images/portfolio/audi-trunk-before.jpg',
-      imageAfter: '/images/portfolio/audi-trunk-after.jpg',
+      imageBefore: require('../../assets/images/sakvoyag.jpg'),
+      imageAfter: require('../../assets/images/sakvoyag.jpg'),
     },
     {
       id: 4,
-      title: 'Перетяжка потолка Lexus LX',
+      title: 'Перетяжка дверных карт',
       category: 'upholstery',
-      description: 'Перетяжка потолка в черную алькантару с установкой LED-подсветки',
-      imageBefore: '/images/portfolio/lexus-ceiling-before.jpg',
-      imageAfter: '/images/portfolio/lexus-ceiling-after.jpg',
+      description: 'Перетяжка дверных карт с использованием экокожи',
+      imageBefore: require('../../assets/images/works/6.jpg'),
+      imageAfter: require('../../assets/images/works/15.jpg'),
     },
     {
       id: 5,
-      title: 'Перетяжка торпеды Toyota Camry',
+      title: 'Перетяжка торпеды Ford',
       category: 'controls',
-      description: 'Перетяжка торпеды в кожу с декоративной строчкой',
-      imageBefore: '/images/portfolio/toyota-dash-before.jpg',
-      imageAfter: '/images/portfolio/toyota-dash-after.jpg',
-    },
-    {
-      id: 6,
-      title: 'Органайзер для Range Rover',
-      category: 'accessories',
-      description: 'Изготовление органайзера между сиденьями с подстаканниками',
-      imageBefore: '/images/portfolio/range-organizer-before.jpg',
-      imageAfter: '/images/portfolio/range-organizer-after.jpg',
+      description: 'Перетяжка торпеды в экокожу',
+      imageBefore: require('../../assets/images/works/8.jpg'),
+      imageAfter: require('../../assets/images/works/14.jpg'),
     },
   ];
   
@@ -75,35 +67,32 @@ const Portfolio = () => {
         </div>
         
         <div className="portfolio-filter text-center mb-5" data-aos="fade-up">
+        <Button
+          onClick={() => setFilter('all')}
+          className={`mx-2 mb-2 filter-btn${filter === 'all' ? ' active' : ''}`}
+        >
+          Все работы
+        </Button>
           <Button 
-            variant={filter === 'all' ? 'primary' : 'outline-primary'} 
-            onClick={() => setFilter('all')}
-            className="mx-2 mb-2"
-          >
-            Все работы
-          </Button>
-          <Button 
-            variant={filter === 'upholstery' ? 'primary' : 'outline-primary'} 
             onClick={() => setFilter('upholstery')}
-            className="mx-2 mb-2"
+            className={`mx-2 mb-2 service-btn${filter === 'upholstery' ? ' active' : ''}`}
           >
             Перетяжка салона
           </Button>
           <Button 
-            variant={filter === 'controls' ? 'primary' : 'outline-primary'} 
             onClick={() => setFilter('controls')}
-            className="mx-2 mb-2"
+            className={`mx-2 mb-2 service-btn${filter === 'controls' ? ' active' : ''}`}
           >
             Элементы управления
           </Button>
           <Button 
-            variant={filter === 'accessories' ? 'primary' : 'outline-primary'} 
             onClick={() => setFilter('accessories')}
-            className="mx-2 mb-2"
+            className={`mx-2 mb-2 service-btn${filter === 'accessories' ? ' active' : ''}`}
           >
             Аксессуары
           </Button>
         </div>
+
         
         <Row className="portfolio-items">
           {filteredItems.map((item) => (
@@ -144,12 +133,6 @@ const Portfolio = () => {
             </Col>
           ))}
         </Row>
-        
-        <div className="text-center mt-4" data-aos="fade-up">
-          <Button variant="primary" size="lg">
-            Смотреть все работы
-          </Button>
-        </div>
       </Container>
     </section>
   );

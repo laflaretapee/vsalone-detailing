@@ -46,25 +46,18 @@ const Header = () => {
             <Nav.Link as={Link} to="about" smooth={true} duration={500} className="nav-item px-2">О нас</Nav.Link>
             <Nav.Link as={Link} to="services" smooth={true} duration={500} className="nav-item px-2">Услуги</Nav.Link>
             <Nav.Link as={Link} to="portfolio" smooth={true} duration={500} className="nav-item px-2">Наши работы</Nav.Link>
-            <Nav.Link as={Link} to="pricing" smooth={true} duration={500} className="nav-item px-2">Цены</Nav.Link>
             <Nav.Link as={Link} to="contact" smooth={true} duration={500} className="nav-item px-2">Контакты</Nav.Link>
           </Nav>
           <div className="d-lg-none text-center mt-2 mb-2"> {/* Блок для мобильной версии */}
             <a href="tel:+79273215687" className="navbar-phone d-block mb-2">
               <FaPhone /> +7 (927) 321-56-87
             </a>
-            <Button variant="primary" size="sm" className="navbar-cta w-100" as={Link} to="contact" smooth={true} duration={500}>
-              Заказать звонок
-            </Button>
           </div>
         </Navbar.Collapse>
         <div className="contact-block d-none d-lg-flex"> {/* Блок для десктопной версии */}
           <a href="tel:+79273215687" className="navbar-phone">
             <FaPhone /> +7 (927) 321-56-87
           </a>
-          <Button variant="primary" size="sm" className="navbar-cta" as={Link} to="contact" smooth={true} duration={500}>
-            Заказать звонок
-          </Button>
         </div>
       </Container>
     </Navbar>

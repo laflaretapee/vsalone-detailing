@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import './Materials.scss';
 
 const Materials = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedMaterial, setSelectedMaterial] = useState(null);
-  
+
   const materials = [
     {
       id: 1,
@@ -31,12 +28,7 @@ const Materials = () => {
         { name: 'Синий', code: '#0D47A1' },
         { name: 'Белый', code: '#FFFFFF' }
       ],
-      image: '/images/materials/leather.jpg',
-      gallery: [
-        '/images/materials/leather-1.jpg',
-        '/images/materials/leather-2.jpg',
-        '/images/materials/leather-3.jpg'
-      ]
+      image: require('../../assets/images/kozha.jpg')
     },
     {
       id: 2,
@@ -56,12 +48,7 @@ const Materials = () => {
         { name: 'Красный', code: '#B71C1C' },
         { name: 'Синий', code: '#0D47A1' }
       ],
-      image: '/images/materials/alcantara.jpg',
-      gallery: [
-        '/images/materials/alcantara-1.jpg',
-        '/images/materials/alcantara-2.jpg',
-        '/images/materials/alcantara-3.jpg'
-      ]
+      image: require('../../assets/images/alcan.jpeg')
     },
     {
       id: 3,
@@ -84,23 +71,18 @@ const Materials = () => {
         { name: 'Зеленый', code: '#1B5E20' },
         { name: 'Оранжевый', code: '#E65100' }
       ],
-      image: '/images/materials/eco-leather.jpg',
-      gallery: [
-        '/images/materials/eco-leather-1.jpg',
-        '/images/materials/eco-leather-2.jpg',
-        '/images/materials/eco-leather-3.jpg'
-      ]
+      image: require('../../assets/images/eco.jpg')
     },
     {
       id: 4,
-      name: 'Перфорированная кожа',
-      description: 'Натуральная или искусственная кожа с перфорацией для улучшения вентиляции и создания уникального дизайна.',
+      name: 'Карпет',
+      description: 'Декоративный самоклеящийся материал, предназначенный для облицовки кабины, салона и багажника автомобиля.',
       features: [
-        'Улучшенная вентиляция',
-        'Уникальный внешний вид',
-        'Различные узоры перфорации',
-        'Комфорт в жаркую погоду',
-        'Сочетание с другими материалами'
+        'Легко монтируется (самоклейка)',
+        'Гибкий, тянется и облегает сложные формы',
+        'Улучшает внешний вид салона',
+        'Скрывает дефекты и шумы',
+        'Доступен в разных цветах и текстурах'
       ],
       colors: [
         { name: 'Черный', code: '#000000' },
@@ -109,15 +91,13 @@ const Materials = () => {
         { name: 'Красный', code: '#B71C1C' },
         { name: 'Белый', code: '#FFFFFF' }
       ],
-      image: '/images/materials/perforated-leather.jpg',
-      gallery: [
-        '/images/materials/perforated-leather-1.jpg',
-        '/images/materials/perforated-leather-2.jpg',
-        '/images/materials/perforated-leather-3.jpg'
-      ]
+      image: require('../../assets/images/karpet.png')
     }
   ];
-  
+
+  // Хук для определения мобильного экрана
+  const isMobile = window.innerWidth < 768;
+
   const handleShowModal = (material) => {
     setSelectedMaterial(material);
     setShowModal(true);
@@ -130,64 +110,113 @@ const Materials = () => {
           <h2>Материалы</h2>
           <p>Мы используем только высококачественные материалы для перетяжки салона</p>
         </div>
-        
-        <Row>
-          {materials.map((material, index) => (
-            <Col lg={3} md={6} className="mb-4" key={material.id} data-aos="fade-up" data-aos-delay={index * 100}>
-              <Card className="material-card h-100">
-                <div className="material-img">
-                  <Card.Img variant="top" src={material.image || `https://via.placeholder.com/300x200?text=${material.name}`} alt={material.name} />
-                </div>
-                <Card.Body>
-                  <Card.Title>{material.name}</Card.Title>
-                  <Card.Text>{material.description}</Card.Text>
-                  
-                  <div className="color-samples">
-                    {material.colors.slice(0, 5).map((color, i) => (
-                      <div 
-                        key={i} 
-                        className="color-sample" 
-                        style={{ backgroundColor: color.code }}
-                        title={color.name}
-                      ></div>
-                    ))}
-                    {material.colors.length > 5 && (
-                      <div className="color-sample more">
-                        +{material.colors.length - 5}
-                      </div>
-                    )}
+
+        {isMobile ? (
+          <Carousel
+            showThumbs={false}
+            showStatus={false}
+            infiniteLoop
+            swipeable
+            emulateTouch
+            showArrows={false}
+            className="materials-carousel"
+          >
+            {materials.map((material) => (
+              <div key={material.id} className="material-carousel-slide">
+                <Card className="material-card">
+                  <div className="material-img">
+                    <Card.Img variant="top" src={material.image} alt={material.name} />
                   </div>
-                </Card.Body>
-                <Card.Footer className="bg-transparent border-0">
-                  <Button 
-                    variant="outline-primary" 
-                    className="w-100"
-                    onClick={() => handleShowModal(material)}
-                  >
-                    Подробнее
-                  </Button>
-                </Card.Footer>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-        
+                  <Card.Body>
+                    <Card.Title>{material.name}</Card.Title>
+                    <Card.Text>{material.description}</Card.Text>
+                    <div className="color-samples">
+                      {material.colors.slice(0, 5).map((color, i) => (
+                        <div
+                          key={i}
+                          className="color-sample"
+                          style={{ backgroundColor: color.code }}
+                          title={color.name}
+                        ></div>
+                      ))}
+                      {material.colors.length > 5 && (
+                        <div className="color-sample more">
+                          +{material.colors.length - 5}
+                        </div>
+                      )}
+                    </div>
+                  </Card.Body>
+                  <Card.Footer className="bg-transparent border-0">
+                    <Button
+                      variant="outline-primary"
+                      className="w-100"
+                      onClick={() => handleShowModal(material)}
+                    >
+                      Подробнее
+                    </Button>
+                  </Card.Footer>
+                </Card>
+              </div>
+            ))}
+          </Carousel>
+        ) : (
+          <Row>
+            {materials.map((material, index) => (
+              <Col lg={3} md={6} className="mb-4" key={material.id} data-aos="fade-up" data-aos-delay={index * 100}>
+                <Card className="material-card h-100">
+                  <div className="material-img">
+                    <Card.Img variant="top" src={material.image} alt={material.name} />
+                  </div>
+                  <Card.Body>
+                    <Card.Title>{material.name}</Card.Title>
+                    <Card.Text>{material.description}</Card.Text>
+                    <div className="color-samples">
+                      {material.colors.slice(0, 5).map((color, i) => (
+                        <div
+                          key={i}
+                          className="color-sample"
+                          style={{ backgroundColor: color.code }}
+                          title={color.name}
+                        ></div>
+                      ))}
+                      {material.colors.length > 5 && (
+                        <div className="color-sample more">
+                          +{material.colors.length - 5}
+                        </div>
+                      )}
+                    </div>
+                  </Card.Body>
+                  <Card.Footer className="bg-transparent border-0">
+                    <Button
+                      variant="outline-primary"
+                      className="w-100"
+                      onClick={() => handleShowModal(material)}
+                    >
+                      Подробнее
+                    </Button>
+                  </Card.Footer>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        )}
+
         <div className="text-center mt-5" data-aos="fade-up">
           <p className="mb-4">
             Помимо представленных материалов, мы можем предложить индивидуальные решения 
             под ваши требования. Возможно комбинирование различных материалов и цветов.
           </p>
-          <Button variant="primary" size="lg">
-            Получить консультацию
+          <Button variant="danger" size="lg">
+            Подобрать материал
           </Button>
         </div>
       </Container>
-      
+
       {/* Модальное окно с подробной информацией о материале */}
-      <Modal 
-        show={showModal} 
-        onHide={() => setShowModal(false)} 
-        size="lg" 
+      <Modal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        size="lg"
         centered
         className="material-modal"
       >
@@ -199,41 +228,30 @@ const Materials = () => {
             <Modal.Body>
               <Row>
                 <Col md={6}>
-                  <Swiper
-                    navigation={true}
-                    pagination={{ clickable: true }}
-                    modules={[Navigation, Pagination]}
-                    className="material-gallery"
-                  >
-                    {selectedMaterial.gallery.map((image, index) => (
-                      <SwiperSlide key={index}>
-                        <img 
-                          src={image || `https://via.placeholder.com/600x400?text=${selectedMaterial.name}`} 
-                          alt={`${selectedMaterial.name} ${index + 1}`} 
-                          className="img-fluid"
-                        />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
+                  <div className="material-image-wrapper text-center mb-4">
+                    <img
+                      src={selectedMaterial.image}
+                      alt={selectedMaterial.name}
+                      className="img-fluid"
+                    />
+                  </div>
                 </Col>
                 <Col md={6}>
                   <div className="material-details">
                     <h4>Описание</h4>
                     <p>{selectedMaterial.description}</p>
-                    
                     <h4>Характеристики</h4>
                     <ul className="material-features">
                       {selectedMaterial.features.map((feature, index) => (
                         <li key={index}>{feature}</li>
                       ))}
                     </ul>
-                    
                     <h4>Доступные цвета</h4>
                     <div className="color-grid">
                       {selectedMaterial.colors.map((color, index) => (
                         <div key={index} className="color-item">
-                          <div 
-                            className="color-sample large" 
+                          <div
+                            className="color-sample large"
                             style={{ backgroundColor: color.code }}
                           ></div>
                           <span>{color.name}</span>

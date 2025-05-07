@@ -20,9 +20,8 @@ const Hero = () => {
             </p>
             <div className="hero-buttons">
               <Button 
-                variant="primary" 
+                className="hero-ghost-btn"
                 size="lg" 
-                className="me-3"
                 as={Link}
                 to="contact"
                 smooth={true}
@@ -31,7 +30,7 @@ const Hero = () => {
                 Получить консультацию
               </Button>
               <Button 
-                variant="outline-light" 
+                className="hero-ghost-btn"
                 size="lg"
                 as={Link}
                 to="portfolio"
@@ -41,6 +40,7 @@ const Hero = () => {
                 Смотреть работы
               </Button>
             </div>
+
           </Col>
         </Row>
       </Container>

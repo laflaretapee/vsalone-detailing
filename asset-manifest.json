@@ -1,22 +1,36 @@
 {
   "files": {
-    "main.css": "/vsalone-detailing/static/css/main.d2a82f72.css",
-    "main.js": "/vsalone-detailing/static/js/main.138a76a2.js",
+    "main.css": "/vsalone-detailing/static/css/main.8a3ac35e.css",
+    "main.js": "/vsalone-detailing/static/js/main.18761d50.js",
+    "static/media/DZ.png": "/vsalone-detailing/static/media/DZ.67744a7b7d6018eb9677.png",
+    "static/media/karpet.png": "/vsalone-detailing/static/media/karpet.96b7adfc5dd6078d3552.png",
     "static/media/ceiling.jpg": "/vsalone-detailing/static/media/ceiling.bf6e37a52f2a279f18ec.jpg",
+    "static/media/phon.jpg": "/vsalone-detailing/static/media/phon.af7a97fadd8f67e44f75.jpg",
+    "static/media/19.jpg": "/vsalone-detailing/static/media/19.b3521c9816f75c7c69dd.jpg",
     "static/media/seats.jpg": "/vsalone-detailing/static/media/seats.dfa0addc3698ea9589ec.jpg",
+    "static/media/15.jpg": "/vsalone-detailing/static/media/15.a0ed91500770709d86b7.jpg",
+    "static/media/35.jpg": "/vsalone-detailing/static/media/35.59e1503123152e5f3228.jpg",
     "static/media/sakvoyag.jpg": "/vsalone-detailing/static/media/sakvoyag.8db7fce01dba94837fce.jpg",
+    "static/media/28.jpg": "/vsalone-detailing/static/media/28.7a52ee811980653a1481.jpg",
+    "static/media/14.jpg": "/vsalone-detailing/static/media/14.b1b1c2027211765ac3e4.jpg",
+    "static/media/6.jpg": "/vsalone-detailing/static/media/6.b4527d520edf1d6e21a3.jpg",
     "static/media/door-cards.jpg": "/vsalone-detailing/static/media/door-cards.077c3ae33ad2a9e05f9a.jpg",
+    "static/media/21.jpg": "/vsalone-detailing/static/media/21.2c659a2c48075caecc62.jpg",
+    "static/media/1.jpg": "/vsalone-detailing/static/media/1.3ecf59db5bbef382f033.jpg",
+    "static/media/8.jpg": "/vsalone-detailing/static/media/8.60c870523fe0be677067.jpg",
     "static/media/rul.jpg": "/vsalone-detailing/static/media/rul.51d29e474351ec4e98e0.jpg",
     "static/media/kpp.jpg": "/vsalone-detailing/static/media/kpp.57780943862f26b016ea.jpg",
     "static/media/pillars.jpg": "/vsalone-detailing/static/media/pillars.af97600d40f3aa854469.jpg",
-    "static/media/hero-bg.jpg": "/vsalone-detailing/static/media/hero-bg.0b964d9b9dcbd68576b2.jpg",
+    "static/media/kozha.jpg": "/vsalone-detailing/static/media/kozha.76830058bfaed69bb0d8.jpg",
+    "static/media/eco.jpg": "/vsalone-detailing/static/media/eco.af8eba5370b6cba833e4.jpg",
+    "static/media/alcan.jpeg": "/vsalone-detailing/static/media/alcan.0601c2fd8de7a98719f7.jpeg",
     "static/media/logo.jpg": "/vsalone-detailing/static/media/logo.66531aa39e05a1f638ea.jpg",
     "index.html": "/vsalone-detailing/index.html",
-    "main.d2a82f72.css.map": "/vsalone-detailing/static/css/main.d2a82f72.css.map",
-    "main.138a76a2.js.map": "/vsalone-detailing/static/js/main.138a76a2.js.map"
+    "main.8a3ac35e.css.map": "/vsalone-detailing/static/css/main.8a3ac35e.css.map",
+    "main.18761d50.js.map": "/vsalone-detailing/static/js/main.18761d50.js.map"
   },
   "entrypoints": [
-    "static/css/main.d2a82f72.css",
-    "static/js/main.138a76a2.js"
+    "static/css/main.8a3ac35e.css",
+    "static/js/main.18761d50.js"
   ]
 }

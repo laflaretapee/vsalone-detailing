@@ -1,79 +1,23 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
+import React from 'react';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useForm, ValidationError } from '@formspree/react';
 import './Contact.scss';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-  
-  const [validated, setValidated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertVariant, setAlertVariant] = useState('success');
-  const [alertMessage, setAlertMessage] = useState('');
-  
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    
-    if (form.checkValidity() === false) {
-      e.stopPropagation();
-      setValidated(true);
-      return;
-    }
-    
-    // Здесь будет логика отправки формы на сервер
-    // Для демонстрации просто показываем сообщение об успехе
-    setAlertVariant('success');
-    setAlertMessage('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
-    setShowAlert(true);
-    
-    // Сбрасываем форму
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: ''
-    });
-    setValidated(false);
-    
-    // Скрываем сообщение через 5 секунд
-    setTimeout(() => {
-      setShowAlert(false);
-    }, 5000);
-  };
-  
+  const [state, handleSubmit] = useForm('mzzrvdbz');
+
   return (
-    <section id="contact" className="contact-section">
+    <section id="contact" className="contact-section py-5">
       <Container>
-        <div className="section-title text-center" data-aos="fade-up">
-          <h2>Контакты</h2>
-          <p>Свяжитесь с нами для консультации или записи</p>
+        <div className="section-title text-center mb-5" data-aos="fade-up">
+          <h2 className="mb-3">Контакты</h2>
+          <p className="lead">Свяжитесь с нами для консультации или записи</p>
         </div>
-        
         <Row className="justify-content-center">
           <Col lg={8} md={10} sm={12} data-aos="fade-up">
-            <div className="contact-form">
+            <div className="contact-form p-4 p-md-5 rounded shadow-sm bg-white">
               <h3 className="text-center mb-4">Отправить сообщение</h3>
-              
-              {showAlert && (
-                <Alert variant={alertVariant} onClose={() => setShowAlert(false)} dismissible>
-                  {alertMessage}
-                </Alert>
-              )}
-              
-              <Form noValidate validated={validated} onSubmit={handleSubmit}>
+              <Form noValidate onSubmit={handleSubmit}>
                 <Row>
                   <Col md={6}>
                     <Form.Group className="mb-3">
@@ -81,65 +25,58 @@ const Contact = () => {
                       <Form.Control
                         type="text"
                         name="name"
-                        value={formData.name}
-                        onChange={handleChange}
+                        placeholder="Введите ваше имя"
                         required
+                        className="custom-input"
                       />
-                      <Form.Control.Feedback type="invalid">
-                        Пожалуйста, укажите ваше имя
-                      </Form.Control.Feedback>
+                      <ValidationError prefix="Имя" field="name" errors={state.errors} />
                     </Form.Group>
                   </Col>
-                  
                   <Col md={6}>
                     <Form.Group className="mb-3">
                       <Form.Label>Email</Form.Label>
                       <Form.Control
                         type="email"
                         name="email"
-                        value={formData.email}
-                        onChange={handleChange}
+                        placeholder="Введите ваш email"
                         required
+                        className="custom-input"
                       />
-                      <Form.Control.Feedback type="invalid">
-                        Пожалуйста, укажите корректный email
-                      </Form.Control.Feedback>
+                      <ValidationError prefix="Email" field="email" errors={state.errors} />
                     </Form.Group>
                   </Col>
                 </Row>
-                
                 <Form.Group className="mb-3">
                   <Form.Label>Телефон</Form.Label>
                   <Form.Control
-                    type="tel"
+                    type="text"
                     name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
+                    placeholder="Введите ваш телефон"
+                    className="custom-input"
                   />
-                  <Form.Control.Feedback type="invalid">
-                    Пожалуйста, укажите ваш телефон
-                  </Form.Control.Feedback>
+                  <ValidationError prefix="Телефон" field="phone" errors={state.errors} />
                 </Form.Group>
-                
                 <Form.Group className="mb-3">
                   <Form.Label>Сообщение</Form.Label>
                   <Form.Control
                     as="textarea"
                     rows={5}
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
+                    placeholder="Напишите ваше сообщение"
                     required
+                    className="custom-input"
                   />
-                  <Form.Control.Feedback type="invalid">
-                    Пожалуйста, напишите ваше сообщение
-                  </Form.Control.Feedback>
+                  <ValidationError prefix="Сообщение" field="message" errors={state.errors} />
                 </Form.Group>
-                
                 <div className="text-center mt-4">
-                  <Button variant="primary" type="submit" size="lg">
-                    Отправить сообщение
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    size="lg"
+                    className="px-5"
+                    disabled={state.submitting}
+                  >
+                    {state.submitting ? 'Отправка...' : 'Отправить сообщение'}
                   </Button>
                 </div>
               </Form>

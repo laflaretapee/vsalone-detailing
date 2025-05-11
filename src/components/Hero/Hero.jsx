@@ -19,27 +19,28 @@ const Hero = () => {
               автомобиля в произведение искусства.
             </p>
             <div className="hero-buttons">
-              <Button 
-                className="hero-ghost-btn"
-                size="lg" 
-                as={Link}
-                to="contact"
-                smooth={true}
-                duration={500}
-              >
-                Получить консультацию
-              </Button>
-              <Button 
-                className="hero-ghost-btn"
-                size="lg"
-                as={Link}
-                to="portfolio"
-                smooth={true}
-                duration={500}
-              >
-                Смотреть работы
-              </Button>
-            </div>
+            <Button
+              className="hero-ghost-btn"
+              size="lg"
+              as="a"
+              href="https://wa.me/79273215687?text=Здравствуйте!%20Я%20хочу%20получить%20консультацию."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Получить консультацию
+            </Button>
+            <Button 
+              className="hero-ghost-btn"
+              size="lg"
+              as={Link}
+              to="portfolio"
+              smooth={true}
+              duration={500}
+            >
+              Смотреть работы
+            </Button>
+          </div>
+
 
           </Col>
         </Row>

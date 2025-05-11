@@ -84,11 +84,20 @@ const Services = () => {
         </Row>
         
         <div className="text-center mt-5" data-aos="fade-up">
-          <p className="mb-4">Не нашли нужную услугу? Свяжитесь с нами для индивидуальной консультации.</p>
-          <Button variant="primary" size="lg" href="#contact">
-            Получить консультацию
-          </Button>
-        </div>
+        <p className="mb-4">
+          Не нашли нужную услугу? Свяжитесь с нами для индивидуальной консультации.
+        </p>
+        <Button
+          variant="primary"
+          size="lg"
+          href="https://wa.me/79273215687?text=Здравствуйте!%20Я%20хочу%20получить%20индивидуальную%20консультацию."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Получить консультацию
+        </Button>
+      </div>
+
       </Container>
     </section>
   );

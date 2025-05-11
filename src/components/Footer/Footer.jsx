@@ -43,7 +43,6 @@ import './Footer.scss';
                     <li><a href="#about">О нас</a></li>
                     <li><a href="#services">Услуги</a></li>
                     <li><a href="#portfolio">Наши работы</a></li>
-                    <li><a href="#pricing">Цены</a></li>
                     <li><a href="#contact">Контакты</a></li>
                   </ul>
                 </div>

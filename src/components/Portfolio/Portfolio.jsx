@@ -29,14 +29,6 @@ const Portfolio = () => {
       imageAfter: require('../../assets/images/works/35.jpg'),
     },
     {
-      id: 3,
-      title: 'Саквояж',
-      category: 'accessories',
-      description: 'Изготовление эксклюзивного саквояжа в багажник из натуральной кожи',
-      imageBefore: require('../../assets/images/sakvoyag.jpg'),
-      imageAfter: require('../../assets/images/sakvoyag.jpg'),
-    },
-    {
       id: 4,
       title: 'Перетяжка дверных карт',
       category: 'upholstery',
@@ -51,6 +43,14 @@ const Portfolio = () => {
       description: 'Перетяжка торпеды в экокожу',
       imageBefore: require('../../assets/images/works/8.jpg'),
       imageAfter: require('../../assets/images/works/14.jpg'),
+    },
+    {
+      id: 3,
+      title: 'Саквояж',
+      category: 'accessories',
+      description: 'Эксклюзивный саквояж в багажник из натуральной кожи (в продаже)',
+      imageBefore: require('../../assets/images/sakvoyag.jpg'),
+      imageAfter: null,
     },
   ];
   
@@ -93,46 +93,74 @@ const Portfolio = () => {
           </Button>
         </div>
 
-        
-        <Row className="portfolio-items">
-          {filteredItems.map((item) => (
-            <Col lg={6} className="mb-4" key={item.id} data-aos="fade-up">
-              <div className="portfolio-item">
-                <h4>{item.title}</h4>
-                <p>{item.description}</p>
-                
-                <div className="before-after-slider">
-                  <Swiper
-                    effect={'coverflow'}
-                    grabCursor={true}
-                    centeredSlides={true}
-                    slidesPerView={1}
-                    coverflowEffect={{
-                      rotate: 50,
-                      stretch: 0,
-                      depth: 100,
-                      modifier: 1,
-                      slideShadows: true,
-                    }}
-                    pagination={{ clickable: true }}
-                    navigation={true}
-                    modules={[EffectCoverflow, Pagination, Navigation]}
-                    className="mySwiper"
-                  >
-                    <SwiperSlide>
-                      <div className="slide-label">До</div>
-                      <img src={item.imageBefore || "https://via.placeholder.com/600x400?text=До"} alt={`${item.title} до`} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="slide-label">После</div>
-                      <img src={item.imageAfter || "https://via.placeholder.com/600x400?text=После"} alt={`${item.title} после`} />
-                    </SwiperSlide>
-                  </Swiper>
-                </div>
-              </div>
-            </Col>
-          ))}
-        </Row>
+	        
+	        <Row className="portfolio-items">
+	          {filteredItems.map((item) => (
+	            <Col lg={6} className="mb-4" key={item.id} data-aos="fade-up">
+                {(() => {
+                  const hasBeforeAfter =
+                    Boolean(item.imageBefore) &&
+                    Boolean(item.imageAfter) &&
+                    item.imageBefore !== item.imageAfter;
+
+                  const sliderImage = item.imageAfter || item.imageBefore;
+
+                  return (
+	              <div className="portfolio-item">
+	                <h4>{item.title}</h4>
+	                <p>{item.description}</p>
+	                
+	                <div className="before-after-slider">
+	                  <Swiper
+	                    effect={'coverflow'}
+	                    grabCursor={true}
+	                    centeredSlides={true}
+	                    slidesPerView={1}
+	                    coverflowEffect={{
+	                      rotate: 50,
+	                      stretch: 0,
+	                      depth: 100,
+	                      modifier: 1,
+	                      slideShadows: true,
+	                    }}
+	                    pagination={hasBeforeAfter ? { clickable: true } : false}
+	                    navigation={hasBeforeAfter}
+	                    modules={[EffectCoverflow, Pagination, Navigation]}
+	                    className="mySwiper"
+	                  >
+                      {hasBeforeAfter ? (
+                        <>
+                          <SwiperSlide>
+                            <div className="slide-label">До</div>
+                            <img
+                              src={item.imageBefore || "https://via.placeholder.com/600x400?text=До"}
+                              alt={`${item.title} до`}
+                            />
+                          </SwiperSlide>
+                          <SwiperSlide>
+                            <div className="slide-label">После</div>
+                            <img
+                              src={item.imageAfter || "https://via.placeholder.com/600x400?text=После"}
+                              alt={`${item.title} после`}
+                            />
+                          </SwiperSlide>
+                        </>
+                      ) : (
+                        <SwiperSlide>
+                          <img
+                            src={sliderImage || "https://via.placeholder.com/600x400"}
+                            alt={item.title}
+                          />
+                        </SwiperSlide>
+                      )}
+	                  </Swiper>
+	                </div>
+	              </div>
+                  );
+                })()}
+	            </Col>
+	          ))}
+	        </Row>
       </Container>
     </section>
   );

@@ -1,39 +1,53 @@
-import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import React, { useEffect, useRef } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import { FaPhone, FaMapMarkerAlt, FaWhatsapp, FaTelegram, FaVk } from 'react-icons/fa';
 import devLogo from '../../assets/images/DZ.png';
 import './Footer.scss';
 
-  const Footer = () => {
-    return (
-      <footer className="footer">
-        <div className="map-section">
-          <iframe 
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3Afd8b6a362107e88ccc016278a3b118e0f39b0587ec775ae826f5878685135fd0&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true" 
-            width="100%" 
-            height="400" 
-            frameBorder="0"
-            title="Яндекс Карта"
-            className="yandex-map"
-          ></iframe>
-        </div>
-        
-        <div className="footer-main">
-          <Container>
-            <Row>
-              <Col lg={4} md={6} className="mb-4 mb-lg-0">
+	  const Footer = () => {
+      const mapContainerRef = useRef(null);
+
+      useEffect(() => {
+        const container = mapContainerRef.current;
+        if (!container) return;
+
+        container.innerHTML = '';
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.charset = 'utf-8';
+        script.async = true;
+        script.src =
+          'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Acbf7351ffa8797c578f1d30982e1a9fe08889474ff7f780a457e83a3ca3e2496&width=100%25&height=400&lang=ru_RU&scroll=true';
+        container.appendChild(script);
+
+        return () => {
+          container.innerHTML = '';
+        };
+      }, []);
+
+	    return (
+	      <footer className="footer">
+	        <div className="map-section">
+	          <div ref={mapContainerRef} className="yandex-map" aria-label="Яндекс Карта" />
+	        </div>
+	        
+	        <div className="footer-main">
+	          <Container>
+	            <Row>
+	              <Col lg={4} md={6} className="mb-4 mb-lg-0">
                 <div className="footer-info">
                   <h3>Vsalone Detailing</h3>
                   <p>
                     Профессиональная перетяжка салонов автомобилей и изготовление 
                     эксклюзивных аксессуаров из натуральной кожи.
-                  </p>
-                  <div className="social-links">
-                    <a href="https://vk.com/vsalonervk" target='_blank' className="vkontakte"><FaVk /></a>
-                    <a href="https://wa.me/79273215687" target='_blank' className="whatsapp"><FaWhatsapp /></a>
-                  </div>
-                </div>
-              </Col>
+	                  </p>
+	                  <div className="social-links">
+		                    <a href="https://vk.com/vsalonervk" target="_blank" rel="noopener noreferrer" className="vkontakte"><FaVk /></a>
+		                    <a href="https://t.me/VSALONE_RVK" target="_blank" rel="noopener noreferrer" className="telegram"><FaTelegram /></a>
+		                    <a href="https://wa.me/79273215687" target="_blank" rel="noopener noreferrer" className="whatsapp"><FaWhatsapp /></a>
+	                  </div>
+	                </div>
+	              </Col>
               
               <Col lg={2} md={6} className="mb-4 mb-lg-0">
                 <div className="footer-links">
@@ -51,13 +65,13 @@ import './Footer.scss';
               <Col lg={3} md={6} className="mb-4 mb-lg-0">
                 <div className="footer-contact">
                   <h4>Контакты</h4>
-                  <p>
-                    <FaMapMarkerAlt className="icon" />
-                    с. Раевский, Альшеевский Район, ул. Кирова 221
-                  </p>
-                  <p>
-                    <FaPhone className="icon" />
-                    <a href="tel:+79273215687">+7 (927) 321-56-87</a>
+	                  <p>
+	                    <FaMapMarkerAlt className="icon" />
+	                    с. Раевский, Альшеевский район, ул. Кирова 98
+	                  </p>
+	                  <p>
+	                    <FaPhone className="icon" />
+	                    <a href="tel:+79273215687">+7 (927) 321-56-87</a>
                   </p>
                 </div>
               </Col>
@@ -70,9 +84,10 @@ import './Footer.scss';
             <div className="copyright">
               &copy; {new Date().getFullYear()} <strong>Vsalone Detailing</strong>. Все права защищены.
             </div>
-            <div className="credits">
-              <a href="#">Политика конфиденциальности</a> | <a href="#">Условия использования</a>
-            </div>
+	            <div className="credits">
+	              <a href="/privacy.html" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a> |{' '}
+	              <a href="/terms.html" target="_blank" rel="noopener noreferrer">Условия использования</a>
+	            </div>
             <div className="developed-by" style={{ marginTop: 10 }}>
               Разработано&nbsp;
               <a href="https://dinarziyazetdinov.ru" target="_blank" rel="noopener noreferrer">

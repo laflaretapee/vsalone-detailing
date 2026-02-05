@@ -7,6 +7,7 @@ import './Materials.scss';
 const Materials = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedMaterial, setSelectedMaterial] = useState(null);
+  const telegramLink = 'https://t.me/VSALONE_RVK';
 
   const materials = [
     {
@@ -209,7 +210,7 @@ const Materials = () => {
         <Button
           variant="danger"
           size="lg"
-          href="https://wa.me/79273215687?text=Здравствуйте!%20Хочу%20подобрать%20материал%20под%20свои%20требования."
+          href={telegramLink}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -273,7 +274,14 @@ const Materials = () => {
               <Button variant="secondary" onClick={() => setShowModal(false)}>
                 Закрыть
               </Button>
-              <Button variant="primary">
+              <Button
+                variant="primary"
+                as="a"
+                href={telegramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setShowModal(false)}
+              >
                 Заказать консультацию
               </Button>
             </Modal.Footer>

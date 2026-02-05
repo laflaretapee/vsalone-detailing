@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-scroll';
 import { FaPhone } from 'react-icons/fa';
 import logoImg from '../../assets/images/logo.jpg';

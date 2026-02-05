@@ -192,7 +192,7 @@ const Services = () => {
       <Container>
         <div className="section-title text-center" data-aos="fade-up">
           <h2>Наши услуги</h2>
-          <p>Профессиональная перетяжка и обновление салона вашего автомобиля</p>
+          <p>Перетяжка салона и детейлинг: тонировка, бронепленка, полировка</p>
         </div>
         
         <Row>

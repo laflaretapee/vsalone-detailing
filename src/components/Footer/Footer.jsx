@@ -90,7 +90,7 @@ import './Footer.scss';
 	            </div>
             <div className="developed-by" style={{ marginTop: 10 }}>
               Разработано&nbsp;
-              <a href="https://dinarziyazetdinov.ru" target="_blank" rel="noopener noreferrer">
+              <a href="https://laflaretapee.github.io/portfolio/" target="_blank" rel="noopener noreferrer">
                 <img src={devLogo} alt="Логотип разработчика" style={{ height: 24, verticalAlign: 'middle' }} />
               </a>
             </div>

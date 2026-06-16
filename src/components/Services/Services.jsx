@@ -7,7 +7,7 @@ import pillarsImg from '../../assets/images/pillars.jpg';
 import rulImg from '../../assets/images/rul.jpg';
 import kppImg from '../../assets/images/kpp.jpg';
 import sakvoiImg from '../../assets/images/sakvoyag.jpg';
-import tintingImg from '../../assets/images/services/tinting.png';
+import tintingImg from '../../assets/images/services/tonir.jpg';
 import ppfImg from '../../assets/images/services/ppf.png';
 import polishingImg from '../../assets/images/services/polishing.png';
 import './Services.scss';

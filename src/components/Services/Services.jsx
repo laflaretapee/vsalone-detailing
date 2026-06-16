@@ -10,6 +10,7 @@ import sakvoiImg from '../../assets/images/sakvoyag.jpg';
 import tintingImg from '../../assets/images/services/tonir.jpg';
 import ppfImg from '../../assets/images/services/ppf.png';
 import polishingImg from '../../assets/images/services/polishing.png';
+import chemicalCleaningImg from '../../assets/images/services/himch.jpg';
 import './Services.scss';
 
 const Services = () => {
@@ -156,6 +157,24 @@ const Services = () => {
     },
     {
       id: 9,
+      title: 'Химчистка салона',
+      description: 'Глубокая очистка сидений, потолка, дверных карт, ковров и багажного отделения.',
+      image: chemicalCleaningImg,
+      fullDescription: [
+        'Профессиональная химчистка салона позволяет удалить въевшиеся загрязнения, пятна и неприятные запахи.',
+        'Используем безопасные профессиональные составы и оборудование для глубокой очистки текстиля, кожи и пластиковых элементов.',
+      ],
+      includes: [
+        'Чистка сидений',
+        'Чистка потолка',
+        'Чистка дверных карт',
+        'Чистка коврового покрытия',
+        'Чистка багажного отделения',
+        'Удаление неприятных запахов',
+      ]
+    },
+    {
+      id: 10,
       title: 'Бронепленка',
       description: 'Оклейка кузова и оптики защитной пленкой для сохранения внешнего вида.',
       image: ppfImg,
@@ -170,7 +189,7 @@ const Services = () => {
       ]
     },
     {
-      id: 10,
+      id: 11,
       title: 'Полировка',
       description: 'Полировка кузова и фар: удаление мелких царапин, восстановление блеска.',
       image: polishingImg,

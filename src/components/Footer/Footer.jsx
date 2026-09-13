@@ -71,7 +71,7 @@ import './Footer.scss';
 	                  </p>
 	                  <p>
 	                    <FaPhone className="icon" />
-	                    <a href="tel:+79273215687">+7 (927) 321-56-87</a>
+	                    <a href="tel:+79279494924">+7 (927) 949-49-24</a>
                   </p>
                 </div>
               </Col>

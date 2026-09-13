@@ -49,14 +49,14 @@ const Header = () => {
             <Nav.Link as={Link} to="contact" smooth={true} duration={500} className="nav-item px-2">Контакты</Nav.Link>
           </Nav>
           <div className="d-lg-none text-center mt-2 mb-2"> {/* Блок для мобильной версии */}
-            <a href="tel:+79273215687" className="navbar-phone d-block mb-2">
-              <FaPhone /> +7 (927) 321-56-87
+            <a href="tel:+79279494924" className="navbar-phone d-block mb-2">
+              <FaPhone /> +7 (927) 949-49-24
             </a>
           </div>
         </Navbar.Collapse>
         <div className="contact-block d-none d-lg-flex"> {/* Блок для десктопной версии */}
-          <a href="tel:+79273215687" className="navbar-phone">
-            <FaPhone /> +7 (927) 321-56-87
+          <a href="tel:+79279494924" className="navbar-phone">
+            <FaPhone /> +7 (927) 949-49-24
           </a>
         </div>
       </Container>
